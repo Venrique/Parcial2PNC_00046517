@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Ver Libros</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+</head>
+<body class="bg-dark">
+
+	<div class="container-fluid pt-3 pb-3 text-light">
+		<div class="row">
+			<div class="col">
+				<h1 class="text-center">Ver Libros</h1>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid bg-light pt-5" style="height: 80vh;">
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6">
+				
+				<table class="table">
+					<thead class="thead-light">
+						<th>Codigo</th>
+						<th>Titulo</th>
+						<th>Autor</th>
+						<th>Estado</th>
+						<th>ISBN</th>
+						<th>Fecha Ingreso</th>
+						<th>Categoria</th>
+					</thead>
+					<th:block th:each="l, row:${libros}">
+						<tr>
+							<th th:text="${l.codLibro}"/>
+							<th th:text="${l.titulo}"/>
+							<th th:text="${l.autor}"/>
+							<th th:text="${l.estado}"/>
+							<th th:text="${l.isbn}"/>
+							<th th:text="${#dates.format(l.fechaIngreso, 'dd/MM/yyyy hh:mm aa')}"/>
+							<th th:text="${l.categoria.categoria}"/>
+						</tr>
+					</th:block>
+				</table>
+				<a href="/index">Regresar</a>
+			</div>
+			<div class="col-3"></div>
+		</div>
+
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Ingresar Libro</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+</head>
+<body class="bg-dark">
+
+	<div class="container-fluid pt-3 pb-3 text-light">
+		<div class="row">
+			<div class="col">
+				<h1 class="text-center">Ingresar Libro</h1>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid bg-light pt-5" style="height: 80vh;">
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6">
+
+				<form th:action="@{/formLibro}" th:object="${libro}" method="post">
+
+					<div class="form-group">
+						<label for="titulo">Título</label> 
+						<input class="form-control" type="text" th:field="*{titulo}" id="titulo" /><br>
+						<span class="form-text text-danger" th:errors="*{titulo}"></span><br>
+					</div>
+
+					<div class="form-group">
+						<label for="autor">Autor</label> 
+						<input class="form-control" type="text" th:field="*{autor}" id="autor" /><br> 
+						<span class="form-text text-danger" th:errors="*{autor}"></span><br>
+					</div>
+
+					<div class="form-group">
+						<label for="cat">Categoría</label> 
+						<select id="cat" th:field="*{codCategoria}">
+							<th:block th:each="c, row:${categorias}">
+								<option th:text="${c.categoria}" th:value="${c.codCategoria}"></option>
+							</th:block>
+						</select>
+						<br>
+					</div>
+					
+					<div class="form-group">
+						<label for="isbn">ISBN</label> 
+						<input class="form-control" type="text" th:field="*{isbn}" id="isbn" /><br> 
+						<span class="form-text text-danger" th:errors="*{isbn}"></span><br>
+					</div>
+
+					<div class="form-group">
+						<label for="estado">Estado</label> 
+						<input type="checkbox" th:field="*{estado}" id="estado" /> 
+						<span class="form-text text-danger" th:errors="*{estado}" style="color: #FF0000;"></span>
+					</div>
+
+					<div class="form-group text-right">
+						<input class="btn btn-primary" type="submit" value="Guardar" />
+					</div>
+
+				</form>
+				<a href="/index">Regresar</a>
+			</div>
+			<div class="col-3"></div>
+		</div>
+
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Ingresar Categoria</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+</head>
+<body class="bg-dark">
+
+	<div class="container-fluid pt-3 pb-3 text-light">
+		<div class="row">
+			<div class="col">
+				<h1 class="text-center">Ingresar Categoria</h1>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid bg-light pt-5" style="height: 80vh;">
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6">
+
+				<form th:action="@{/formCategoria}" th:object="${categoria}" method="post">
+
+					<div class="form-group">
+						<label for="name">Nombre de la categoria</label> 
+						<input class="form-control" type="text" th:field="*{categoria}" id="name" /><br>
+						<span class="form-text text-danger" th:errors="*{categoria}"></span><br>
+					</div>
+
+
+					<div class="form-group text-right">
+						<input class="btn btn-primary" type="submit" value="Guardar Categoria" />
+					</div>
+
+				</form>
+				<a href="/index">Regresar</a>
+			</div>
+			<div class="col-3"></div>
+		</div>
+
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
