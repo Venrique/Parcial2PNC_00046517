@@ -27,7 +27,6 @@
 						<th>Codigo</th>
 						<th>Titulo</th>
 						<th>Autor</th>
-						<th>Estado</th>
 						<th>ISBN</th>
 						<th>Fecha Ingreso</th>
 						<th>Categoria</th>
@@ -37,7 +36,6 @@
 							<th th:text="${l.codLibro}"/>
 							<th th:text="${l.titulo}"/>
 							<th th:text="${l.autor}"/>
-							<th th:text="${l.estado}"/>
 							<th th:text="${l.isbn}"/>
 							<th th:text="${#dates.format(l.fechaIngreso, 'dd/MM/yyyy hh:mm aa')}"/>
 							<th th:text="${l.categoria.categoria}"/>
